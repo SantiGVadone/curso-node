@@ -1,0 +1,27 @@
+{
+  "name": "clase-2",
+  "version": "1.0.0",
+  "description": "Practicando las cosas de la segunda clase",
+  "keywords": [
+    "node"
+  ],
+  "homepage": "https://github.com/SantiGVadone/curso-node/tree/main#readme",
+  "bugs": {
+    "url": "https://github.com/SantiGVadone/curso-node/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SantiGVadone/curso-node.git#main"
+  },
+  "license": "ISC",
+  "author": "SantiGVadone ~Numerit0s",
+  "type": "commonjs",
+  "main": "routing.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:3": "node --watch express.js"
+  },
+  "dependencies": {
+    "express": "5.2.1"
+  }
+}

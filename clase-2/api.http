@@ -1,0 +1,20 @@
+###PARA PROBAR QUE LA PAG ANDA 
+GET http://localhost:1234
+###RECUPERAR INFO DEL POKEMON DITO
+GET http://localhost:1234/pokemon/ditto
+
+###PARA CREAR UN POKEMON
+POST http://localhost:1234/pokemon
+Content-Type: application/json
+
+//es importante este espacio sino puede pensar que esto es un header
+{
+    "name" : "ditto",
+    "type" : "normal",
+    "moves" : [
+        "transform"
+    ]
+}
+
+###REQUEST BUSCANDO EL 404 
+GET http://localhost:1234/ASJKDBASJID

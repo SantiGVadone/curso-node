@@ -3,3 +3,12 @@ YA HICE HASTA EL MINUTO 41 DE LA CLASE, ME TUBE QUE IR, PERO HASTA DONDE HICE PU
 https://www.youtube.com/watch?v=-9d3KhCqOtU&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=3
 
 MINUTO 42 MAS O MENOS
+
+
+USAMOS:
+node --watch "dirección donde esta el app.js"
+		PARA PODER VER LAS SOLICITUDES HTTP DESDE VSCODE
+
+Y USAMOS EL:
+npx servor "dirección donde esta el index.hmtl"
+		PARA PODER VER LA PAG WEB EN UN LOCAL HOST Y EN UNA IP

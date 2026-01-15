@@ -2,10 +2,10 @@
 GET http://localhost:1234/movies 
 
 ### RECUPERAR PELICULAS POR ID
-GET http://localhost:1234/movies/8a9f3623-a89b-4973-a651-823c0b451c86
+GET http://localhost:1234/movies/3982031b-849d-4952-ac7f-4ab72255ab0a
 
 ### RECUPERAR PELICULAS POR GENERO
-GET http://localhost:1234/movies?genre=drAma
+GET http://localhost:1234/movies?genre=crime
 
 ###CREAR UNA PELICULA CON UN POST 
 POST http://localhost:1234/movies
@@ -22,6 +22,12 @@ Content-Type: application/json
         "Drama"
     ],
     "rate": 9.2
-
 }
 
+###ACTUALIZAR UNA PELICULA CON PATHc
+PATCH http://localhost:1234/movies/3a3035a8-fda6-47ae-98e2-f6058dc8be41
+Content-Type: application/json
+
+{
+    "year": 2025
+}

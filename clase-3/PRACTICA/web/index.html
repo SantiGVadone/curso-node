@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librería API Rest</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212; /* Fondo oscuro */
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            color: #00d4ff;
+            border-bottom: 2px solid #00d4ff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background-color: #00d4ff;
+            color: #121212;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #00b8e6;
+        }
+
+        /* Grid de libros responsivo */
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        article {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        article:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+        }
+
+        /* Estilo de la imagen (Portada) */
+        .poster-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover; /* Evita que la imagen se deforme */
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+            color: #fff;
+        }
+
+        p {
+            margin: 5px 0;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        .tags {
+            margin-top: auto; /* Empuja los tags al fondo */
+            padding-top: 10px;
+            font-size: 0.8rem;
+            color: #00d4ff;
+        }
+
+        .rating {
+            color: gold;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📚 Biblioteca Node.js & Express</h1>
+
+    <div class="controls">
+        <button onclick="window.location.href='/'">🏠 Ver Todos</button>
+        <button onclick="window.location.href='/?genre=Horror'">👻 Terror</button>
+        <button onclick="window.location.href='/?genre=Sci-Fi'">👽 Sci-Fi</button>
+    </div>
+
+    <main id="libros-container">
+        <p style="text-align: center; width: 100%;">Cargando librería...</p>
+    </main>
+
+    <script>
+        // URL base de TU API (Asegúrate que el puerto coincida con el de Node)
+        const API_URL = 'http://localhost:1234/libros';
+
+        async function cargarLibros() {
+            const container = document.getElementById('libros-container');
+            
+            try {
+                // --- LA SOLUCIÓN DEL FILTRO ESTÁ AQUÍ ---
+                // window.location.search agarra el "?genre=Horror" de tu navegador
+                // y se lo pegamos a la llamada a la API.
+                const queryParams = window.location.search; 
+                const urlFinal = API_URL + queryParams;
+
+                console.log("Pidiendo datos a:", urlFinal); // Para debug
+
+                const response = await fetch(urlFinal);
+                
+                if (!response.ok) throw new Error('Error en la red');
+
+                const libros = await response.json();
+
+                // Limpiamos el contenedor
+                container.innerHTML = '';
+
+                if (libros.length === 0) {
+                    container.innerHTML = '<p>No se encontraron libros con ese criterio.</p>';
+                    return;
+                }
+
+                libros.forEach(libro => {
+                    const article = document.createElement('article');
+                    // Usamos la propiedad .poster del JSON
+                    article.innerHTML = `
+                        <img src="${libro.poster}" alt="Portada de ${libro.title}" class="poster-img" onError="this.src='https://via.placeholder.com/200x300?text=No+Cover'">
+                        <h2>${libro.title}</h2>
+                        <p><strong>Autor:</strong> ${libro.author}</p>
+                        <p><strong>Año:</strong> ${libro.year}</p>
+                        <p class="rating">★ ${libro.rate}</p>
+                        <p class="tags">${libro.genre.join(', ')}</p>
+                    `;
+                    container.appendChild(article);
+                });
+
+            } catch (error) {
+                console.error(error);
+                container.innerHTML = '<p style="color: #ff4444">Error al cargar la API. <br> Asegúrate que el servidor (app.js) esté corriendo en el puerto 1234.</p>';
+            }
+        }
+        
+        // Ejecutar al inicio
+        cargarLibros();
+    </script>
+</body>
+</html>

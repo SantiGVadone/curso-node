@@ -7,7 +7,6 @@ LA IDEA ES HACER UNA PRACTICA DONDE SE HAGA UNA API QUE PERMITA:
     VOY A SUMAR PARA PRACTICAR UN GET DE LIBROS POR ID
 */
 
-
 const express = require('express');
 const libros = require('./libros.json');
 const crypto = require('node:crypto');
@@ -25,6 +24,11 @@ app.get('/', (req, res) => {
 
 app.get('/libros', (req, res) => {
 
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.header('Access-Control-Allow-Credentials', true);
+
     const {genre}= req.query
     if (genre){
         const filteredBooks= libros.filter( 
@@ -39,13 +43,6 @@ app.get('/libros', (req, res) => {
 });
 
 app.post('/libros', (req, res) => {
-
-    //en el  caso de que lo vaya a levantar en una pag/dominio tendria que mandarle las cabeceras para que ese dominio tenga "acceso a la api" y para no tener problema de CORS
-    // res.header('Access-Control-Allow-Origin', '*');
-    // res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    // res.header('Access-Control-Allow-Headers', 'Content-Type');
-    // res.header('Access-Control-Allow-Credentials', true);
-
 
     const result = validateBook(req.body)
     if (result.error) {
@@ -86,9 +83,6 @@ app.patch('/libros/:id', (req, res) => {
 
 })
 
-
-
-
 app.get('/libros/:id', (req, res) => {
     const id = req.params.id;
     const libro = libros.find(libro => libro.id === id);
@@ -97,9 +91,6 @@ app.get('/libros/:id', (req, res) => {
     }
     res.json(libro);
 })
-
-
-
 
 const PORT = process.env.PORT || 1234;
 

@@ -16,7 +16,8 @@ const bookSchema = z.object({
             'Technology','Programming','Education','Classic','Drama','Horror'])
     ),
     pages: z.number().min(1).int(),
-    rate: z.number().positive().max(10)
+    rate: z.number().positive().max(10),
+    poster: z.string().url().optional()
 })
 
 function validateBook(input){

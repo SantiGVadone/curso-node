@@ -6,7 +6,8 @@
     "year": 1954,
     "genre": ["Fantasy", "Adventure"],
     "pages": 1178,
-    "rate": 9.5
+    "rate": 9.5,
+    "poster": "https://images-na.ssl-images-amazon.com/images/I/91b0C2YNSrL.jpg"
   },
   {
     "id": "5f3a-2b1c-8d4e-6f9a",
@@ -15,7 +16,8 @@
     "year": 1949,
     "genre": ["Sci-Fi", "Dystopian"],
     "pages": 328,
-    "rate": 9.0
+    "rate": 9.0,
+    "poster": "https://images-na.ssl-images-amazon.com/images/I/71kxa1-0mfL.jpg"
   },
   {
     "id": "a1b2-c3d4-e5f6-g7h8",
@@ -24,7 +26,8 @@
     "year": 1997,
     "genre": ["Fantasy", "Children"],
     "pages": 223,
-    "rate": 8.8
+    "rate": 8.8,
+    "poster": "https://images-na.ssl-images-amazon.com/images/I/81q77Q39nEL.jpg"
   },
   {
     "id": "9e8d-7c6b-5a4f-3e2d",
@@ -33,16 +36,8 @@
     "year": 2008,
     "genre": ["Technology", "Programming", "Education"],
     "pages": 464,
-    "rate": 9.2
-  },
-  {
-    "id": "1a2b-3c4d-5e6f-7g8h",
-    "title": "Dune",
-    "author": "Frank Herbert",
-    "year": 1965,
-    "genre": ["Sci-Fi", "Adventure"],
-    "pages": 412,
-    "rate": 8.9
+    "rate": 9.2,
+    "poster": "https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL.jpg"
   },
   {
     "id": "b2c3-d4e5-f6g7-h8i9",
@@ -51,6 +46,97 @@
     "year": 1925,
     "genre": ["Classic", "Drama"],
     "pages": 180,
-    "rate": 8.1
+    "rate": 8.1,
+    "poster": "https://images-na.ssl-images-amazon.com/images/I/81af+MCATTL.jpg"
+  },
+  {
+    "id": "3c4d-5e6f-7g8h-9i0j",
+    "title": "Fahrenheit 451",
+    "author": "Ray Bradbury",
+    "year": 1953,
+    "genre": ["Sci-Fi", "Dystopian"],
+    "pages": 249,
+    "rate": 8.5,
+    "poster": "https://images-na.ssl-images-amazon.com/images/I/71OFqSRFDgL.jpg"
+  },
+  {
+    "id": "4d5e-6f7g-8h9i-0j1k",
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "year": 1951,
+    "genre": ["Classic", "Drama"],
+    "pages": 234,
+    "rate": 7.9,
+    "poster": "https://images-na.ssl-images-amazon.com/images/I/81OthjkJBuL.jpg"
+  },
+  {
+    "id": "5e6f-7g8h-9i0j-1k2l",
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "year": 1813,
+    "genre": ["Classic", "Romance"],
+    "pages": 279,
+    "rate": 8.7,
+    "poster": "https://images-na.ssl-images-amazon.com/images/I/71Q1tPupKjL.jpg"
+  },
+  {
+    "id": "7g8h-9i0j-1k2l-3m4n",
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "year": 1937,
+    "genre": ["Fantasy", "Adventure"],
+    "pages": 310,
+    "rate": 9.1,
+    "poster": "https://images-na.ssl-images-amazon.com/images/I/91b0C2YNSrL.jpg"
+  },
+  {
+    "id": "9i0j-1k2l-3m4n-5o6p",
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "year": 1932,
+    "genre": ["Sci-Fi", "Dystopian"],
+    "pages": 268,
+    "rate": 8.9,
+    "poster": "https://images-na.ssl-images-amazon.com/images/I/81zE42gT3xL.jpg"
+  },
+  {
+    "id": "0j1k-2l3m-4n5o-6p7q",
+    "title": "Frankenstein",
+    "author": "Mary Shelley",
+    "year": 1818,
+    "genre": ["Classic", "Horror", "Sci-Fi"],
+    "pages": 280,
+    "rate": 8.4,
+    "poster": "https://images-na.ssl-images-amazon.com/images/I/81z7E0uWdtL.jpg"
+  },
+  {
+    "id": "1k2l-3m4n-5o6p-7q8r",
+    "title": "The Shining",
+    "author": "Stephen King",
+    "year": 1977,
+    "genre": ["Horror"],
+    "pages": 447,
+    "rate": 8.5,
+    "poster": "https://images-na.ssl-images-amazon.com/images/I/81R2N4PRuUL.jpg"
+  },
+  {
+    "id": "4n5o-6p7q-8r9s-0t1u",
+    "title": "Eloquent JavaScript",
+    "author": "Marijn Haverbeke",
+    "year": 2018,
+    "genre": ["Technology", "Programming", "Education"],
+    "pages": 472,
+    "rate": 9.4,
+    "poster": "https://images-na.ssl-images-amazon.com/images/I/51InjRPaF7L.jpg"
+  },
+  {
+    "id": "6p7q-8r9s-0t1u-2v3w",
+    "title": "A Game of Thrones",
+    "author": "George R.R. Martin",
+    "year": 1996,
+    "genre": ["Fantasy", "Adventure"],
+    "pages": 694,
+    "rate": 9.2,
+    "poster": "https://images-na.ssl-images-amazon.com/images/I/91dSMhdIzTL.jpg"
   }
 ]

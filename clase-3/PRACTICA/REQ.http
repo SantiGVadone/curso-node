@@ -1,0 +1,29 @@
+###PIDO TODOS LOS LIBROS
+GET http://localhost:1234/libros
+
+###PIDO TODOS LOS LIBROS DE UN GENERO EN ESPECIFICO 
+GET http://localhost:1234/libros?genre=drama
+
+###POST PARA AGREGAR UN LIBRO
+POST http://localhost:1234/libros
+Content-Type: application/json
+
+{
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "year": 1937,
+  "genre": ["Fantasy", "Adventure"],
+  "pages": 310,
+  "rate": 9.1
+}
+
+###PATCH PARA ACTUALIZAR UN LIBRO SIN TENER QUE COMPLETAR TODOS LOS CAMPOS
+PATCH http://localhost:1234/libros/c8b3-4a1d-9e2f-1c5b
+Content-Type: application/json
+
+{
+    "year": 1954
+}
+
+###GET DE LIBRO POR ID
+GET http://localhost:1234/libros/c8b3-4a1d-9e2f-1c5b

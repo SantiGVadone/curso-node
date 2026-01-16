@@ -1,0 +1,56 @@
+[
+  {
+    "id": "c8b3-4a1d-9e2f-1c5b",
+    "title": "The Lord of the Rings",
+    "author": "J.R.R. Tolkien",
+    "year": 1954,
+    "genre": ["Fantasy", "Adventure"],
+    "pages": 1178,
+    "rate": 9.5
+  },
+  {
+    "id": "5f3a-2b1c-8d4e-6f9a",
+    "title": "1984",
+    "author": "George Orwell",
+    "year": 1949,
+    "genre": ["Sci-Fi", "Dystopian"],
+    "pages": 328,
+    "rate": 9.0
+  },
+  {
+    "id": "a1b2-c3d4-e5f6-g7h8",
+    "title": "Harry Potter and the Philosopher's Stone",
+    "author": "J.K. Rowling",
+    "year": 1997,
+    "genre": ["Fantasy", "Children"],
+    "pages": 223,
+    "rate": 8.8
+  },
+  {
+    "id": "9e8d-7c6b-5a4f-3e2d",
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "year": 2008,
+    "genre": ["Technology", "Programming", "Education"],
+    "pages": 464,
+    "rate": 9.2
+  },
+  {
+    "id": "1a2b-3c4d-5e6f-7g8h",
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "year": 1965,
+    "genre": ["Sci-Fi", "Adventure"],
+    "pages": 412,
+    "rate": 8.9
+  },
+  {
+    "id": "b2c3-d4e5-f6g7-h8i9",
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "year": 1925,
+    "genre": ["Classic", "Drama"],
+    "pages": 180,
+    "rate": 8.1
+  }
+]

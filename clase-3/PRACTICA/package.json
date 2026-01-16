@@ -1,0 +1,16 @@
+{
+  "name": "practica",
+  "version": "1.0.0",
+  "description": "practica de lo aprendido en node hasta el momento",
+  "license": "ISC",
+  "author": "SantiGVadone",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "5.2.1",
+    "zod": "4.3.5"
+  }
+}

@@ -3,3 +3,17 @@ COMO PASAR TODO DE COMONJS A ES Modules
 COMO IMPORTAR JSONS
 COMO EMPROLIJAR EL APP.JS HACIENDO EL TEMA DE LAS RUTAS EN OTRO ARCHIVO
 
+ESTA CLASE VAMOS A VER UN PATRON DE ARQUITECTURA LLAMADO:
+            M: MODELO 
+            V: VISTA
+            C: CONTROL/ CONTROLADOR
+
+MODELO representa la logica del negocio
+VISTA representa la interfaz del usuario 
+CONTROL/CONTROLADOR representa al orquestador, actua como intermediario ,es el que pide las cosas, te dice que tenes que pedir, es el que esta en medio.
+
+
+
+NOTA: ME QUEDE EN EL MINUTO 50 DONDE EXPLICA PORQUE EL FILTRO QEU ESTA EN MODELS CONVIENE QUE SEA UNA CLASE
+LINK DEL VIDEO: https://www.youtube.com/watch?v=ev3Yxva4wI4&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=4
+ME QUEDE MIN 50

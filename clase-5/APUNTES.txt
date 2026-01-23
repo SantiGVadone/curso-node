@@ -1,0 +1,6 @@
+En esta clase estamos agregando base de datos a todo lo que veniamos haciendo 
+me quede en la parte donde se esta haciendo la funcion de INSERTAR una pelicula nueva en la base de datos por medio del metodo POST,
+me faltaria saber como hago para recibir bien los datos de el id del genero para de esta forma poder insertarlos en la tabla de la relacion
+creo que en base al array que me llega, tengo que ver que id tiene cada genero que esta en el array de genre y despues simplemente hacer los insert con  id_peli + id_genero
+
+me quede en el minuto 52 de la clase 5

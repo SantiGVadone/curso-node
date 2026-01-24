@@ -37,9 +37,10 @@ export class MovieModel {
         return movies
     }
 
-    static async create (input) {
+    static async create ({input}) {
         
         const {
+            genre: genreInput,
             title,
             year,
             director,
@@ -50,13 +51,78 @@ export class MovieModel {
 
         const [ uuidResult] = await connection.query('SELECT UUID() uuid;');
         const [{uuid}] = uuidResult
+        
+        try{
 
-        const [result] = await connection.query(
-            'INSERT INTO movie (id, title, year, director, duration, poster, rate) VALUES (?, ?, ?, ?, ?, ?)',
+            await connection.query(
+            'INSERT INTO movie (id, title, year, director, duration, poster, rate) VALUES (UUID_TO_BIN(?),?, ?, ?, ?, ?, ?)',
             [ uuid ,title, year, director, duration, poster, rate] );
+
+        }catch(error){
+            console.log(error)
+            throw new Error('Error creating movie')
+        }
+        
+        for (const genre of genreInput) {
+            const [genresDb]= await connection.query(
+                'SELECT id FROM GENRE WHERE LOWER(name) = ?;', [genre.toLowerCase()]
+            );
+
+        if (genresDb.length > 0) {
+            const genreId = genresDb[0].id;
+
+            await connection.query(
+                'INSERT INTO movie_genres (movie_id, genre_id) VALUES (UUID_TO_BIN(?), ?)',
+                [uuid, genreId]
+            );
+            }
+        }
+
+        const [movie]=await connection.query(
+            'SELECT BIN_TO_UUID(m.id) id, m.title,m.year,m.director,m.duration,m.poster,m.rate FROM movie m  WHERE m.id = UUID_TO_BIN(?)',[uuid]
+        );
+        return movie[0];
     }
 
-    static async delete ({id}) {}
+    static async delete ({id}) {
+        const [pelicula] = await connection.query(
+            'SELECT * FROM movie WHERE id = UUID_TO_BIN(?)', [id]
+        );
+        await connection.query(
+            'DELETE FROM movie_genres WHERE movie_id = UUID_TO_BIN(?)', [id]
+            );
+        await connection.query(
+            'DELETE FROM movie WHERE id = UUID_TO_BIN(?)', [id]
+        );
+
+        return pelicula[0]
+
+    }
   
-    static async update ({id, input}) {}
+    static async update ({id, input}) {
+        const {
+            genre: genreInput,
+            title,
+            year,
+            director,
+            duration,
+            poster,
+            rate
+        } = input;
+
+        
+        const movie = await connection.query(
+            'SELECT * FROM movie WHERE id = UUID_TO_BIN(?)', [id]
+        ); 
+
+        await connection.query(
+            'UPDATE movie SET title = ?, year = ?, director = ?, duration = ?, poster = ?, rate = ? WHERE id = UUID_TO_BIN(?)',
+            [title, year, director, duration, poster, rate, id]
+        );
+        await connection.query(
+            'UPDATE movie_genres SET movie_id = UUID_TO_BIN(?) WHERE movie_id = UUID_TO_BIN(?)',
+            [id, movie[0][0].id]
+        );
+        
+    }
 }

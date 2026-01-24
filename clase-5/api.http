@@ -25,9 +25,12 @@ Content-Type: application/json
 }
 
 ### Actualizar una película
-PATCH http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+PATCH http://localhost:1234/movies/78f6d82a-f8d1-11f0-a140-7085c2d94234
 Content-Type: application/json
 
 {
   "year": 2022
 }
+
+### Eliminar una película
+DELETE http://localhost:1234/movies/c7a8dbe3-f8d1-11f0-a140-7085c2d94234

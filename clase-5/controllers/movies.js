@@ -26,7 +26,7 @@ export class MoviesController{
 
         res.json(movie)
 
-    } catch{
+    } catch(error){
         res.status(500).json({error: error.message})
     }  
     }
@@ -41,7 +41,7 @@ export class MoviesController{
             const newMovie = await MovieModel.create({input: result.data})
             
             res.status(201).json(newMovie) //recurso creado
-        }catch{
+        }catch(error){
             res.status(500).json({error: error.message})
         }
         
@@ -58,7 +58,7 @@ export class MoviesController{
         }
 
         res.json({ message: 'Movie deleted' })
-    }catch{
+    }catch(error){
         res.status(500).json({ error: error.message })
     }
     }

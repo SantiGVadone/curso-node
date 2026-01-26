@@ -1,0 +1,28 @@
+password de TiDB Cloud
+ou7HlEa1xbhScEdP
+
+
+datos de la db 
+HOST:
+
+gateway01.us-east-1.prod.aws.tidbcloud.com
+
+PORT:
+
+4000
+
+USERNAME:
+
+USxpwKprRp94h5Z.root
+
+PASSWORD:
+
+ou7HlEa1xbhScEdP
+
+DATABASE:
+
+moviesdb
+
+CA:
+
+<CA_PATH>

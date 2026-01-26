@@ -2,14 +2,19 @@ import mysql from 'mysql2/promise';
 
 
 const config = {
-    host: 'localhost',
-    user: 'root',
-    password: '', //por ahora no tenemos password
-    database: 'moviesdb',
-    port: 3306
+    host: process.env.DB_HOST ?? 'localhost',
+    user: process.env.DB_USER ?? 'root',
+    port: process.env.DB_PORT ?? 4000,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 }
 
-const connection = await mysql.createConnection(config);
+const connection = await mysql.createConnection({
+    ...config,
+    ssl:{
+        rejectUnauthorized: false
+    }
+});
 
 export class MovieModel {
     static async getAll ({genre}) {

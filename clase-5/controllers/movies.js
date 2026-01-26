@@ -1,24 +1,29 @@
-import { MovieModel } from "../models/database/mysql/movie.js";
+//saco este import ya que ahora lo estoy haciendo por inyeccion de dependencia, asi es mas seguro
+//ya que al pasarle el movie model desde afuera, es mas seguro porque el controllador no sabe lo que esta utilizando
+//digamos que de esa forma el controlador dice ahora tengo que llamar a la cosa que tengo en esta variable
+//import { MovieModel } from "../models/database/mysql/movie.js"; 
 import { validateMovie, validatePartialMovie } from "../schemes/movies.js"
 
-
-export class MoviesController{
-    static async getAll (req, res) {
+export class MovieController{
+    constructor({movieModel}){
+        this.movieModel = movieModel
+    }
+    getAll = async (req, res)=> {
     try {
         const { genre } = req.query
-        const movies = await MovieModel.getAll({ genre })
+        const movies = await this.movieModel.getAll({ genre })
         res.json(movies)
     } catch (error) {
-        res.status(500).json({ error: error.message })
+        res.status(500).json({ error: error.message }) //es mejor enviar un error nuevo, por las dudas que el error mande algo importante
     }
     }
-    static async getById (req,res) { 
+    getById = async (req,res)=>  { 
     //esto es crear un end point, osea que estoy 
     // creando un lugar donde se puede cargar ese parametro id
     
     try{
         const {id} = req.params
-        const movie = await MovieModel.getById({id})
+        const movie = await this.movieModel.getById({id})
 
         if(!movie){
             return res.status(404).json({message:'Movie not found'})
@@ -31,14 +36,14 @@ export class MoviesController{
     }  
     }
 
-    static async create (req,res){
+    create = async (req,res)=>{
         try{
             const result = validateMovie(req.body)
             if(!result.success){ //esto seria lo mismo que decir result.error
                 return res.status(400).json({error: JSON.parse(result.error.message)})
             }
     
-            const newMovie = await MovieModel.create({input: result.data})
+            const newMovie = await this.movieModel.create({input: result.data})
             
             res.status(201).json(newMovie) //recurso creado
         }catch(error){
@@ -47,11 +52,11 @@ export class MoviesController{
         
     }
 
-    static async delete (req, res) {
+    delete = async (req, res) => {
     try{
         const { id } = req.params
         
-        const result = await MovieModel.delete({ id })
+        const result = await this.movieModel.delete({ id })
 
         if (result === false) {
             return res.status(404).json({ message: 'Movie not found' })
@@ -62,7 +67,7 @@ export class MoviesController{
         res.status(500).json({ error: error.message })
     }
     }
-    static async update (req,res){
+    update = async (req,res)=>{
         try{
             const result = validatePartialMovie(req.body)
             if(!result.success){
@@ -71,7 +76,7 @@ export class MoviesController{
     
             const {id} = req.params
     
-            const updatedMovie = await MovieModel.update({id , input: result.data})
+            const updatedMovie = await this.movieModel.update({id , input: result.data})
             
             if(updatedMovie === -1){
                 return res.status(404).json({message:'Movie not found'})

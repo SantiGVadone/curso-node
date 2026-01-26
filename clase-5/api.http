@@ -25,11 +25,11 @@ Content-Type: application/json
 }
 
 ### Actualizar una película
-PATCH http://localhost:1234/movies/78f6d82a-f8d1-11f0-a140-7085c2d94234
+PATCH http://localhost:1234/movies/04986507-b3ed-442c-8ae7-4c5df804f896
 Content-Type: application/json
 
 {
-  "year": 2022
+  "year": 2012
 }
 
 ### Eliminar una película

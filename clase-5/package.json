@@ -8,7 +8,8 @@
   "type": "module",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start:mysql": "node --watch server-with-mysql.js",
+    "start:local": "node --watch server-with-local.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

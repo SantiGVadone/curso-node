@@ -1,14 +1,17 @@
 import { Router } from "express";
+import { MovieController } from "../controllers/movies.js";
 
-import { MoviesController } from "../controllers/movies.js";
+export const createMovieRouter = ({movieModel}) => {
+    const moviesRouter = Router()
+ 
+    const movieController = new MovieController({movieModel})
 
-export const moviesRouter = Router()
+    moviesRouter.get('/', movieController.getAll)
+    moviesRouter.post('/', movieController.create)
 
-moviesRouter.get('/', MoviesController.getAll)
-moviesRouter.post('/', MoviesController.create)
+    moviesRouter.get('/:id', movieController.getById)
+    moviesRouter.delete('/:id', movieController.delete)
+    moviesRouter.patch('/:id', movieController.update)
 
-moviesRouter.get('/:id', MoviesController.getById) //esto se conoce como path-to-regexp 
-
-moviesRouter.delete('/:id', MoviesController.delete)
-
-moviesRouter.patch('/:id', MoviesController.update)
+    return moviesRouter
+}

@@ -4,6 +4,12 @@ import { createMovieRouter } from './routes/movies.js'   //importo las rutas que
 
 import { corsMiddleware } from './middlewares/cors.js'  //importo los middlewares donde tengo los cors
 
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 
 export const createApp = ({movieModel})=>{
 
@@ -14,6 +20,12 @@ export const createApp = ({movieModel})=>{
     app.disable('x-powered-by') //deshabilita el header x-powered-by: Express
 
     // CORS Cross-Origin Resourse Sharing
+
+    app.use(express.static(path.join(__dirname, 'web')));
+
+    app.get('/', (req, res) => {
+        res.sendFile(path.join(__dirname, 'web', 'index.html'));
+    });
 
     app.use('/movies',createMovieRouter({movieModel})) //cuando acceso a /movies cargo todas las rutas que tengo en esa direccion 
 

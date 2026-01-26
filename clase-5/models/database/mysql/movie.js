@@ -9,7 +9,7 @@ const config = {
     database: process.env.DB_NAME
 }
 
-const connection = await mysql.createConnection({
+const connection = await mysql.createPool({
     ...config,
     ssl:{
         rejectUnauthorized: false

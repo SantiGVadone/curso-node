@@ -1,0 +1,25 @@
+{
+  "name": "js-user-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "bcrypt": "6.0.0",
+    "db-local": "3.1.0",
+    "express": "5.2.1"
+  },
+  "devDependencies": {
+    "standard": "17.1.2"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
+}
